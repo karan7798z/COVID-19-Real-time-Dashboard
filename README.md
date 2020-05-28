@@ -33,31 +33,32 @@ Thus now, our 2 final dataframes are ready -
 ## Data Loading in Google Sheets using Google Sheets API
 Since Tableau has an option of loading datasets from a Google Sheets Data Source, and allows for real time data refresh using this source, I have uploaded the transformed data to Google Sheets from Python, using the `pygsheets` library and Google Sheets API.
 
-I first created a Project in [Google API Console](https://console.developers.google.com/) and enable the Google Sheets and Google Drive API access for this project.
+I first created a Project in [Google API Console](https://console.developers.google.com/) and enabled the Google Sheets and Google Drive API access for this project.
 
 To access the Google Sheets API from our local Python console, we need to authorize pyghseets for this access.
 
 This requires a credential to be created for our Google Console Project. Here's how you can create an appropriate credential:
 
-1. Select ‘Credentials’ (under ‘Library’) from the left pane. This will display you the ‘Credentials’ pane on the right
-2. Click on the ‘CREATE CREDENTIALS’ option on the top, which will display a drop-down menu
-3. Click on ‘Help me choose’ option from the drop-down menu, which will redirect you to a pane with heading ‘Add credentials to your project’
-4. On this ‘Add credentials to your project’ pane follow along:
+1. Select ‘Credentials’ (under ‘Library’) from the left pane. This will display the ‘Credentials’ pane on the right
+2. Click on the ‘CREATE CREDENTIALS’ option on the top. This will display a drop-down menu
+3. Click on ‘Help me choose’ option from the drop-down menu, which will redirect you to a pane reading ‘Add credentials to your project’
+4. On this pane follow along:
 
-5. Step 1: ‘Find out what kind of credentials you need’
-6. Which API are you using? — Google Sheets API
-7. Where will you be calling the API from? — Web server
-8. What data will you be accessing? — Application data
-9. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
-Now, click on ‘What credentials do I need?’ for suggestion as per our input
+  1. Step 1: 
+    1. ‘Find out what kind of credentials you need’
+    2. Which API are you using? — Google Sheets API
+    3. Where will you be calling the API from? — Web server
+    4. What data will you be accessing? — Application data
+    5. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
+    6. Now, click on ‘What credentials do I need?’ for suggestion as per our input
 
-10. Step 2: ‘Create a service account’
-11. Service account name — (for e.g: covid-data-update)
-12. Role — Editor (From drop-down select ‘Project’ and then ‘Editor’)
-13. Service account ID — auto-created
-14. Key type — JSON
-15. Now, click on ‘Continue’.
-16. This will ask you to save credentials.json file which allows access to your cloud resources — so store it securely.
+  2. Step 2: ‘Create a service account’
+    1. Service account name — (for e.g: covid-data-update)
+    2. Role — Editor (From drop-down select ‘Project’ and then ‘Editor’)
+    3. Service account ID — auto-created
+    4. Key type — JSON
+    5. Now, click on ‘Continue’.
+    6. This will ask you to save credentials.json file which allows access to your cloud resources — store it securely.
 
 Now from this credentials file, I copied the email address value from ‘client_email’ key, and pasted this in the 'Share' options of a new Google Sheet, so that I can share that sheet (target sheet) with the client email. This email needs to be given edit access to the sheet.
 
