@@ -1,6 +1,7 @@
 # [COVID-19-Real-time-Dashboard](https://public.tableau.com/profile/karan.rakesh.gupta#!/vizhome/COVID-19_15844231812360/GeographicalDistribution)
 
-Repository for Real time COVID-19 Dashboard
+
+![COVID-19 Image](https://ewscripps.brightspotcdn.com/dims4/default/7671677/2147483647/strip/true/crop/1303x733+15+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F0a%2Ff2%2F72b1b4d94794992a0772cb593ce5%2Fscreen-shot-2020-02-25-at-10.49.27%20AM.png)
 
 
 
