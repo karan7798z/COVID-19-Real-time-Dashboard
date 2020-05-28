@@ -44,13 +44,12 @@ This requires a credential to be created for our Google Console Project. Here's 
 3. Click on ‘Help me choose’ option from the drop-down menu, which will redirect you to a pane reading ‘Add credentials to your project’
 4. On this pane follow along:
 
-   1. Step 1: 
-      1. ‘Find out what kind of credentials you need’
-      2. Which API are you using? — Google Sheets API
-      3. Where will you be calling the API from? — Web server
-      4. What data will you be accessing? — Application data
-      5. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
-      6. Now, click on ‘What credentials do I need?’ for suggestion as per our input
+   1. Step 1: ‘Find out what kind of credentials you need’
+      1. Which API are you using? — Google Sheets API
+      2. Where will you be calling the API from? — Web server
+      3. What data will you be accessing? — Application data
+      4. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
+      5. Now, click on ‘What credentials do I need?’ for suggestion as per our input
 
    2. Step 2: ‘Create a service account’
       1. Service account name — (for e.g: covid-data-update)
