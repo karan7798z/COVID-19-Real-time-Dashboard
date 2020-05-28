@@ -67,7 +67,17 @@ Next I authorized `pygsheets` to make edits in the created Google Sheet with the
 
 and the rest of the code in the covid.py file, ensures that the data is loaded in the Google Sheet upon execution.
 
+Also, the code contains a section where you can add your own path, at which a log file would be created and in that log file, all the steps involved in loading the dataframe to Google Sheets would be logged so as to be able to triage any issues that may arise in between. You need to add your own path in the covid.py file on line 41. Add your path in place of  - 
+
+'/Users/karan7798z/Desktop/Data_Science/corona-virus-report/Logs/Log.txt'
+
 ## Data Visualization in Tableau Public, using real time data from Google Sheets
 Now in Tableau Public, a Google Sheets Data Source is selected and after allowing it access to the Google account where the Google Sheet is loaded with data, it is given the path of our new Google Sheet.
 
 I have attached my Tableau Workbook here for reference.
+
+Finally, to **automate** the entire workflow, it is necessary to automate the execution of the python file - covid.py which acts as the controller for the entire project (since this file acquires data from the github source, transforms it, and loads it into Google Sheets).
+
+I have scheduled a cronjob on my Macbook to execute this Python file everyday at 1.30 AM (since it is around that time that the Github repository containing our source file gets refreshed). The command for the same is as follows:
+
+`30 1 * * * <Python compiler path> <Python File Path>`
