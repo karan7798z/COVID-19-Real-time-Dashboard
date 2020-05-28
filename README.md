@@ -44,21 +44,21 @@ This requires a credential to be created for our Google Console Project. Here's 
 3. Click on ‘Help me choose’ option from the drop-down menu, which will redirect you to a pane reading ‘Add credentials to your project’
 4. On this pane follow along:
 
-  1. Step 1: 
-    1. ‘Find out what kind of credentials you need’
-    2. Which API are you using? — Google Sheets API
-    3. Where will you be calling the API from? — Web server
-    4. What data will you be accessing? — Application data
-    5. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
-    6. Now, click on ‘What credentials do I need?’ for suggestion as per our input
+   1. Step 1: 
+      1. ‘Find out what kind of credentials you need’
+      2. Which API are you using? — Google Sheets API
+      3. Where will you be calling the API from? — Web server
+      4. What data will you be accessing? — Application data
+      5. Are you planning to use this API with App Engine or Compute Engine? — No, I’m not using them
+      6. Now, click on ‘What credentials do I need?’ for suggestion as per our input
 
-  2. Step 2: ‘Create a service account’
-    1. Service account name — (for e.g: covid-data-update)
-    2. Role — Editor (From drop-down select ‘Project’ and then ‘Editor’)
-    3. Service account ID — auto-created
-    4. Key type — JSON
-    5. Now, click on ‘Continue’.
-    6. This will ask you to save credentials.json file which allows access to your cloud resources — store it securely.
+   2. Step 2: ‘Create a service account’
+      1. Service account name — (for e.g: covid-data-update)
+      2. Role — Editor (From drop-down select ‘Project’ and then ‘Editor’)
+      3. Service account ID — auto-created
+      4. Key type — JSON
+      5. Now, click on ‘Continue’.
+      6. This will ask you to save credentials.json file which allows access to your cloud resources — store it securely.
 
 Now from this credentials file, I copied the email address value from ‘client_email’ key, and pasted this in the 'Share' options of a new Google Sheet, so that I can share that sheet (target sheet) with the client email. This email needs to be given edit access to the sheet.
 
