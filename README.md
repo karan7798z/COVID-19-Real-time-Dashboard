@@ -67,7 +67,7 @@ Next I authorized `pygsheets` to make edits in the created Google Sheet with the
 
 and the rest of the code in the covid.py file, ensures that the data is loaded in the Google Sheet upon execution.
 
-Also, the code contains a section where you can add your own path, at which a log file would be created and in that log file, all the steps involved in loading the dataframe to Google Sheets would be logged so as to be able to triage any issues that may arise in between. You need to add your own path in the covid.py file on line 41. Add your path in place of  - 
+The code also contains a section where you can add your own path, and at that path, a log file would be created in which all the steps involved in loading the dataframe to Google Sheets would be logged so as to be able to triage any issues that may arise in between. You need to add your own path in the covid.py file on line 41. Add your path in place of  - 
 
 '/Users/karan7798z/Desktop/Data_Science/corona-virus-report/Logs/Log.txt'
 
