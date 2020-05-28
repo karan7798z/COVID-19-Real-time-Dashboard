@@ -31,7 +31,7 @@ Thus now, our 2 final dataframes are ready -
 2. Dataframe containing merged values from USA State Grouped, and covid_19_clean_complete.csv
 
 ## Data Loading in Google Sheets using Google Sheets API
-Since Tableau has an option of loading datasets from a Google Sheets Data Source, and allows for real time data refresh using this source, I have uploaded the transformed data to Google Sheets from Python, using the pygsheets library and Google Sheets API.
+Since Tableau has an option of loading datasets from a Google Sheets Data Source, and allows for real time data refresh using this source, I have uploaded the transformed data to Google Sheets from Python, using the `pygsheets` library and Google Sheets API.
 
 I first created a Project in [Google API Console](https://console.developers.google.com/) and enable the Google Sheets and Google Drive API access for this project.
 
@@ -61,13 +61,13 @@ Now, click on ‘What credentials do I need?’ for suggestion as per our input
 
 Now from this credentials file, I copied the email address value from ‘client_email’ key, and pasted this in the 'Share' options of a new Google Sheet, so that I can share that sheet (target sheet) with the client email. This email needs to be given edit access to the sheet.
 
-Next I authorized pygsheets to make edits in the created Google Sheet with the below command - 
+Next I authorized `pygsheets` to make edits in the created Google Sheet with the below command - 
 
-client = pygsheets.authorize(service_file='/Users/karan7798z/Desktop/Data_Science/credentials.json')
+`client = pygsheets.authorize(service_file='/Users/karan7798z/Desktop/Data_Science/credentials.json')`
 
-and the rest of the code in the .py file, ensures that the data is loaded in the Google Sheet upon execution.
+and the rest of the code in the covid.py file, ensures that the data is loaded in the Google Sheet upon execution.
 
 ## Data Visualization in Tableau Public, using real time data from Google Sheets
-Now in Tableau Public a Google Sheets Data Source is selected and after allowing it access to the Google account where the Google Sheet is loaded with data, it is given the path of our new Google Sheet.
+Now in Tableau Public, a Google Sheets Data Source is selected and after allowing it access to the Google account where the Google Sheet is loaded with data, it is given the path of our new Google Sheet.
 
 I have attached my Tableau Workbook here for reference.
