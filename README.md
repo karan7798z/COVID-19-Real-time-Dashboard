@@ -14,7 +14,7 @@ The project was implemented in 3 phases -
 3. Data Visualization in Tableau Public, using real time data from Google Sheets
 
 ## Data Acquisition from Github
-Data is acquired from [here](https://github.com/imdevskp/covid_19_jhu_data_web_scrap_and_cleaning).
+Data is acquired from [here](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series).
 
 The file - covid.py contains the code to scrape the csv files from this URL. 
 
