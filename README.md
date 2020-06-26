@@ -5,7 +5,7 @@
 
 
 
-This Dashboard is created using Tableau Public, and the dataset used is provided by John Hopkins University. I have used a modified version of this dataset, curated [here](https://github.com/imdevskp/covid_19_jhu_data_web_scrap_and_cleaning)
+This Dashboard is created using Tableau Public, and the dataset used is provided by John Hopkins University.
 
 The project was implemented in 3 phases - 
 1. Data Acquisition from Github
