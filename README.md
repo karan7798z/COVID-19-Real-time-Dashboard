@@ -7,29 +7,29 @@
 
 This Dashboard is created using Tableau Public, and the dataset used is provided by John Hopkins University.
 
-The project was implemented in 3 phases - 
+A Data Pipeline is created in Python for extraction, transformation and loading of the data into Google Sheets, from where the data is fed to our Tableau Dashboard. The steps in which the entire pipeline is executed is as follows - 
+
 1. Data Acquisition from Github
-2. Data Transformation in Python
+2. Data Transformation
 3. Data Loading in Google Sheets using Google Sheets API
-3. Data Visualization in Tableau Public, using real time data from Google Sheets
+3. Data Visualization in Tableau Public using on demand, real time data from Google Sheets
+
+The entire pipeline code can be viewed in the Python script - covid.py
 
 ## Data Acquisition from Github
+The function - extract_data_from_url() is called in the etl() initiation function, to extract data from the provided URL.
+
 Data is acquired from [here](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series).
 
-The file - covid.py contains the code to scrape the csv files from this URL. 
+All csv files downloaded from this source, are stored in separate dataframes.
 
-The 2 csv files downloaded from this source, are stored in 2 separate dataframes.
-
-Reason why I have downloaded 2 different csv's is because the first csv contains the Country and State-wise distribution of cases for all major countries, except for the United States, and the second csv contains the state-wise as well as the province-wise distribution of cases for the US.
+A total of 5 files are downloaded from this source - One for Confirmed Global Cases, one for Recovered Global Cases, one for global death cases, one for confirmed cases of USA (county-wise) and another for death cases of USA (county-wise).
 
 ## Data Transformation in Python
-Initially, the unused columns are removed from the usa_county_wise.csv, and then the columns are grouped on Country, State and Date, to get the state-wise case count of confirmed and death cases for US.
+After extracting data from the respective csv's into disparate dataframes, the transform_dataframes_global() and transform_dataframes_usa() functions are called to transform the extracted data, so that it is ready to be fed to our dashboard.
 
-To create a combined source for state-wise cases for as many countries for which data is available, I have merged the first dataframe (containing data from the csv - covid_19_clean_complete.csv), and the new grouped dataframe for US States.
-
-Thus now, our 2 final dataframes are ready - 
-1. Dataframe containing original file data from - covid_19_clean_complete.csv
-2. Dataframe containing merged values from USA State Grouped, and covid_19_clean_complete.csv
+The function - transform_dataframes_global() merges the 3 csv's for Confirmed, Recovered and Death cases into one after necessary modification.
+The function - transform_dataframes_usa() merges data for USA and other countries for which state-level data is available, to create a new aggregated dataframe containing state-wise distribution of cases for available countries.
 
 ## Data Loading in Google Sheets using Google Sheets API
 Since Tableau has an option of loading datasets from a Google Sheets Data Source, and allows for real time data refresh using this source, I have uploaded the transformed data to Google Sheets from Python, using the `pygsheets` library and Google Sheets API.
@@ -79,6 +79,4 @@ I have attached my Tableau Workbook here for reference.
 
 Finally, to **automate** the entire workflow, it is necessary to automate the execution of the python file - covid.py which acts as the controller for the entire project (since this file acquires data from the github source, transforms it, and loads it into Google Sheets).
 
-I have scheduled a cronjob on my Macbook to execute this Python file everyday at 1.30 AM (since it is around that time that the Github repository containing our source file gets refreshed). The command for the same is as follows:
-
-`30 1 * * * <Python compiler path> <Python File Path>`
+I have scheduled a workflow in Apache Airflow for this, to execute this Python file everyday at 1.30 AM (since it is around that time that the Github repository containing our source file gets refreshed).
